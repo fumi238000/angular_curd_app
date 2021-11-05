@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Posts } from '../posts';
+import { POSTS } from '../mock-posts';
+// import { Post } from '../post';
 
 @Component({
   selector: 'app-posts',
@@ -7,12 +8,7 @@ import { Posts } from '../posts';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  day = new Date()
-  posts: Posts = {
-    day: `${this.day.getMonth()}月 ${this.day.getDay()}日 `,
-    title: "test title",
-    details: "details",
-   }
+  posts = POSTS
 
   constructor() { }
 

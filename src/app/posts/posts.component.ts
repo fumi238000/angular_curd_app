@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Posts } from '../posts';
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
   day = new Date()
-  posts = {
+  posts: Posts = {
     day: `${this.day.getMonth()}月 ${this.day.getDay()}日 `,
     title: "test title",
     details: "details",

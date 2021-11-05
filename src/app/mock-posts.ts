@@ -3,6 +3,7 @@
 import { Post } from "./post"
 
 export const POSTS: Post = {
+  id: 1,
   day: "2020/12/31",
   title: "test title",
   details: "details",

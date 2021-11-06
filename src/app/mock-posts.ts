@@ -6,31 +6,31 @@ export const POSTS: Post[] = [
   {
     id: 1,
     day: "2020/12/31",
-    title: "test title1",
-    details: "details",
+    title: "コロナウイルス",
+    details: "最近おとなしい",
   },
   {
     id: 2,
     day: "2020/12/31",
-    title: "test title2",
+    title: "原監督",
     details: "details",
   },
   {
     id: 3,
     day: "2020/12/31",
-    title: "test title3",
+    title: "コンビニ飯",
     details: "details",
   },
   {
     id: 4,
     day: "2020/12/31",
-    title: "test title4",
+    title: "鈴木誠也",
     details: "details",
   },
   {
     id: 5,
     day: "2020/12/31",
-    title: "test title4",
+    title: "シャビ",
     details: "details",
   }
 ]

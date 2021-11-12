@@ -15,17 +15,23 @@ export class PostService {
     private http: HttpClient
   ) { }
 
+  //全ての投稿データを取得する関数
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl)
       .pipe(
-        tap(posts => console.log(`投稿作成しました`)),
+        tap(posts => console.log(`投稿データを取得しました`)),
         catchError(this.handleError<Post[]>('getPosts',[]))
       )
   }
 
   //idを渡すと、そのidを持つ投稿データを１つ返す関数
   getPost(id: number): Observable<Post | undefined> {
-    return of(POSTS.find(post => post.id === id));
+    const url = `${this.postsUrl}/${id}`;
+    return this.http.get<Post>(url)
+      .pipe(
+        tap(posts => console.log(`投稿データを取得しました`)),
+        catchError(this.handleError<Post>(`getPost id={id}`))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

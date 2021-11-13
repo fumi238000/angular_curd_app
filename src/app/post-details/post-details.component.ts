@@ -30,9 +30,14 @@ export class PostDetailsComponent implements OnInit {
     this.PostService.getPost(id).subscribe(post => this.post = post)
   }
 
-  //ボタン
+  //戻る処理
   goBack(): void {
     this.location.back()
+  }
+
+  save(): void {
+    this.PostService.updatePost(this.post)
+      .subscribe(() => this.goBack())
   }
 
 }

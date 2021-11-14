@@ -7,3 +7,6 @@
 - 投稿編集機能
 - 投稿追加機能
 - 投稿削除機能
+
+## 学習再開する場合
+- [Udamy](https://www.udemy.com/course/angular-ja/learn/lecture/23435506#questions)

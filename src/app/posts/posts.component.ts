@@ -34,4 +34,9 @@ export class PostsComponent implements OnInit {
         this.posts.push(post)
       })
   }
+
+  delete(post: Post): void {
+    this.posts = this.posts.filter(p => p !== post) //削除対象の投稿を配列postsから取り除く
+    this.PostService.deletePost(post).subscribe();
+  }
 }

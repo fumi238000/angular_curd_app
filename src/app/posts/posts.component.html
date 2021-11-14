@@ -10,11 +10,12 @@
   <button (click)="add(postTitle.value, postDetails.value);postTitle.value ='';postDetails.value =''">追加</button>
 </div>
 
+<!-- TODO: 条件分岐を入れる -->
 <div *ngFor="let post of posts">
   <p>ID: {{post.id}}</p>
   <p>日付: {{post.day}}</p>
   <p>タイトル: {{post.title}}</p>
   <p>詳細: {{post.details}}</p>
   <button routerLink="/post/{{ post.id }}" >詳細</button>
+  <button (click)="delete(post)">削除</button>
 </div>
-

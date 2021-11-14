@@ -52,6 +52,16 @@ export class PostService {
       )
   }
 
+  deletePost(post: Post | number): Observable<any> {
+    const id = typeof post === 'number' ? post : post.id;
+    const url = "${this.postsUrl/${id}"
+    return this.http.delete<Post>(url, this.httpOptions)
+      .pipe(
+        tap(_ => console.log(`投稿を削除しました`)),
+        catchError(this.handleError<Post>(`deletePost`))
+      )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post';
-import { POSTS } from './mock-posts';
-import { Observable, of } from 'rxjs';
+import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap }from 'rxjs/operators'
 
@@ -34,6 +33,14 @@ export class PostService {
       .pipe(
         tap(posts => console.log(`投稿データを取得しました`)),
         catchError(this.handleError<Post>(`getPost id={id}`))
+      );
+  }
+
+  addPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(this.postsUrl, post, this.httpOptions)
+    .pipe(
+        tap(_ => console.log(`投稿を作成しました`)),
+        catchError(this.handleError<any>('addPost')) //型を入れていないせいで、1日食った・・。
       );
   }
 

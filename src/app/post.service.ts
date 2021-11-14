@@ -36,7 +36,7 @@ export class PostService {
       );
   }
 
-  addPost(post: Post): Observable<Post> {
+  addPost(post: any): Observable<Post> {
     return this.http.post<Post>(this.postsUrl, post, this.httpOptions)
     .pipe(
         tap(_ => console.log(`投稿を作成しました`)),
